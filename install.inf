@@ -1,0 +1,12 @@
+[info]
+title=Formatter for XML: Pretty Print
+desc=Formats/indents XML code, using xmlpp library
+type=cudatext-plugin
+subdir=cuda_fmt_xml_pp
+homepage=https://github.com/CudaText-addons/cuda_fmt_xml_pp
+
+[fmt1]
+caption=XML Pretty Print
+method=format
+lexers=XML
+force_all=1
