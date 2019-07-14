@@ -7,5 +7,5 @@ which is not popular but should work good.
 - XML Tidy
 Uses xml.dom Python library which requires OK structure of XML file.
 
-Author: Alexey T. (CudaText)
+Author: Alexey Torgashin (CudaText)
 License: MIT

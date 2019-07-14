@@ -1,17 +1,30 @@
 import re
+import json
 import xml.dom.minidom
 from . import xmlpp
 import cudatext as app
+from cuda_fmt import get_config_filename
+
+def options():
+
+    fn = get_config_filename('XML Pretty Print')
+    s = open(fn, 'r').read()
+    d = json.loads(s)
+
+    tabsize = d.get('tab_size', 2)
+    width = d.get('max_width', 100)
+
+    return tabsize, width
+
 
 def format_pp(text):
 
-    WIDTH = 100 #reformat at max width
-    indent = app.ed.get_prop(app.PROP_TAB_SIZE)
-    eol = '\n'
-    text = xmlpp.get_pprint(text, indent=indent, width=WIDTH)
+    tabsize, width = options()
+    text = xmlpp.get_pprint(text, indent=tabsize, width=width)
     lines = text.splitlines()
-    text = eol.join(lines)+eol
+    text = '\n'.join(lines)+'\n'
     return text
+
 
 def format_dom(source):
 
@@ -25,8 +38,9 @@ def format_dom(source):
     result = re_compile.findall(source)
     source = ''.join(result)
 
-    indent_text = ' '*app.ed.get_prop(app.PROP_TAB_SIZE)
+    tabsize, width = options()
+
     parsed = parsedCheck
-    lines = parsed.toprettyxml(indent=indent_text).split('\n')
+    lines = parsed.toprettyxml(indent=' '*tabsize).split('\n')
     source = '\n'.join([line for line in lines if line.strip()])
     return source

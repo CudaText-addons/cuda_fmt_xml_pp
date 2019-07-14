@@ -10,6 +10,7 @@ caption=XML Pretty Print
 method=format_pp
 lexers=XML
 force_all=1
+config=cuda_fmt_xml.json
 
 [fmt2]
 caption=XML Tidy
