@@ -8,12 +8,12 @@ homepage=https://github.com/CudaText-addons/cuda_fmt_xml_pp
 [fmt1]
 caption=XML Pretty Print
 method=format_pp
-lexers=XML
+lexers=XML,XML ^
 force_all=1
 config=cuda_fmt_xml.json
 
 [fmt2]
 caption=XML Tidy
 method=format_dom
-lexers=XML
+lexers=XML,XML ^
 force_all=1
