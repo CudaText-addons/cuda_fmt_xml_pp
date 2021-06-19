@@ -1,4 +1,7 @@
 
+2021.06.20
++ added support for 'XML ^' lite lexer
+
 2019.07.14
 + added config file with 2 options
 - fix formatting passive editors
